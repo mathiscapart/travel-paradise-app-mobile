@@ -31,7 +31,7 @@ function Card ({title, subtitle, date}: Card){
             alignContent: "space-around"
         },
         text:{
-            fontFamily: 'BeVietnam-Regular',
+            fontFamily: '²',
             margin: 5,
         },
         header:{
