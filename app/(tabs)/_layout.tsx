@@ -23,6 +23,12 @@ export default function RootLayout() {
                         }}
                     />
                     <Stack.Screen
+                        name="profil"
+                        options={{
+                            title: 'Profil',
+                        }}
+                    />
+                    <Stack.Screen
                         name="logout"
                         options={{
                             title: 'Logout',
