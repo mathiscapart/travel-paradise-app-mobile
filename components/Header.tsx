@@ -1,12 +1,12 @@
-import { StyleSheet, View, TouchableOpacity, Modal, Text, Pressable, Dimensions, Platform } from "react-native";
+import { StyleSheet, View, TouchableOpacity, Modal, Text, Pressable, Dimensions } from "react-native";
 import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "expo-router";
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Logo from "@/components/Logo";
+import {useAuth} from "@/hooks/useAuth";
 
-type RouteNames = "/" | "/explore" | "/login";
+type RouteNames = "/" | "/explore" | "/login" | "/logout";
 
-// Fonction pour obtenir les dimensions responsive
 const getResponsiveDimensions = () => {
     const { width, height } = Dimensions.get('window');
     const isTablet = width >= 768;
@@ -19,7 +19,6 @@ const getResponsiveDimensions = () => {
         isTablet,
         isLargePhone,
         isSmallPhone,
-        // Calculer des tailles adaptives
         headerPadding: isTablet ? 25 : isLargePhone ? 20 : 15,
         burgerSize: isTablet ? 32 : isSmallPhone ? 24 : 28,
         fontSize: isTablet ? 28 : isLargePhone ? 26 : 24,
@@ -33,8 +32,9 @@ function Header() {
     const router = useRouter();
     const pathname = usePathname();
     const insets = useSafeAreaInsets();
+    const { isAuthenticated } = useAuth();
 
-    // Écouter les changements d'orientation
+
     useEffect(() => {
         const subscription = Dimensions.addEventListener('change', () => {
             setDimensions(getResponsiveDimensions());
@@ -64,7 +64,6 @@ function Header() {
         return isCurrentPage(route) ? '#8C52FF' : '#FFFFFF';
     };
 
-    // Styles dynamiques basés sur les dimensions
     const dynamicStyles = StyleSheet.create({
         container: {
             ...styles.container,
@@ -104,7 +103,6 @@ function Header() {
         menuItem: {
             ...styles.menuItem,
             paddingVertical: dimensions.menuItemPadding,
-            // Sur tablette, centrer les items et limiter la largeur
             ...(dimensions.isTablet && {
                 alignSelf: 'center',
                 width: '60%',
@@ -170,16 +168,15 @@ function Header() {
                                 Home
                             </Text>
                         </Pressable>
-                        <Pressable
+                        {isAuthenticated ? <Pressable
                             style={dynamicStyles.menuItem}
-                            onPress={() => navigateTo("/explore")}
-                            accessibilityLabel="Explorer"
+                            onPress={() => navigateTo("/logout")}
+                            accessibilityLabel="Se déconnecter"
                         >
-                            <Text style={[dynamicStyles.menuItemText, { color: getMenuItemColor("/explore") }]}>
-                                Explore
+                            <Text style={[dynamicStyles.menuItemText, { color: getMenuItemColor("/logout") }]}>
+                                Logout
                             </Text>
-                        </Pressable>
-                        <Pressable
+                        </Pressable> : <Pressable
                             style={dynamicStyles.menuItem}
                             onPress={() => navigateTo("/login")}
                             accessibilityLabel="Se connecter"
@@ -187,7 +184,8 @@ function Header() {
                             <Text style={[dynamicStyles.menuItemText, { color: getMenuItemColor("/login") }]}>
                                 Login
                             </Text>
-                        </Pressable>
+                        </Pressable>}
+
                     </View>
                 </View>
             </Modal>
@@ -203,10 +201,9 @@ const styles = StyleSheet.create({
         justifyContent: "space-around",
         width: "100%",
         backgroundColor: "#FFFFFF",
-        // Suppression des paddings fixes - maintenant dynamiques
     },
     touchableArea: {
-        padding: 8, // Zone de touch plus grande
+        padding: 8,
     },
     burgerIcon: {
         justifyContent: "space-between",

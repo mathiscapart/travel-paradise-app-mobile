@@ -47,7 +47,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         try {
             setIsLoading(true);
             await authService.login(credentials);
-            await checkAuthStatus(); // Recharger les données utilisateur
+            await checkAuthStatus();
         } catch (error) {
             console.error('Erreur lors de la connexion:', error);
             throw error;
