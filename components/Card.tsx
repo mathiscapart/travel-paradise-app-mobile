@@ -2,7 +2,6 @@ import PrimaryButton from "@/components/PrimaryButton";
 import {Text, View, StyleSheet} from "react-native";
 import { useRouter } from "expo-router";
 
-
 type Card = {
     title: string
     subtitle: string
@@ -34,7 +33,7 @@ function Card ({title, subtitle, date, visitId }: Card){
             alignContent: "space-around"
         },
         text:{
-            fontFamily: '²',
+            fontFamily: 'BeVietnam-Regular',
             margin: 5,
         },
         header:{

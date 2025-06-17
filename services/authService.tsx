@@ -12,7 +12,7 @@ export interface LoginResponse {
 }
 
 export interface User {
-    id: string;
+    id: number;
     email: string;
     country: string,
     phone: string,
