@@ -8,7 +8,62 @@
     "attendance": 12,
     "is_finished": false,
     "notation": 4,
-    "guides_id": [1, 2]
+    "guides_id": [1, 2],
+    "present_user": [
+      {
+        "id": 101,
+        "email": "alice@example.com",
+        "country": "France",
+        "phone": "+33600000001",
+        "firstName": "Alice",
+        "lastName": "TESA",
+        "language": "fr",
+        "role": "visitor"
+      },
+      {
+        "id": 102,
+        "email": "bob@example.com",
+        "country": "France",
+        "phone": "+33600000002",
+        "firstName": "Bob",
+        "lastName": "TESA",
+        "language": "fr",
+        "role": "visitor"
+      }
+    ],
+    "registered_user": [
+      {
+        "id": 101,
+        "email": "alice@example.com",
+        "country": "France",
+        "phone": "+33600000001",
+        "firstName": "Alice",
+        "lastName": "TESA",
+        "language": "fr",
+        "role": "visitor"
+      },
+      {
+        "id": 102,
+        "email": "bob@example.com",
+        "country": "France",
+        "phone": "+33600000002",
+        "firstName": "Bob",
+        "lastName": "TESA",
+        "language": "fr",
+        "role": "visitor"
+      },
+      {
+        "id": 103,
+        "email": "charlie@example.com",
+        "country": "France",
+        "phone": "+33600000003",
+        "firstName": "Charlie",
+        "lastName": "TESA",
+        "language": "en",
+        "role": "visitor"
+      }
+    ],
+    "langage": ["fr", "en"]
   },
   {
     "id": 2,
@@ -19,6 +74,61 @@
     "attendance": 10,
     "is_finished": true,
     "notation": 5,
-    "guides_id": [3]
+    "guides_id": [3],
+    "present_user": [
+      {
+        "id": 201,
+        "email": "david@example.com",
+        "country": "Germany",
+        "phone": "+491600000001",
+        "firstName": "David",
+        "lastName": "Keller",
+        "language": "de",
+        "role": "visitor"
+      },
+      {
+        "id": 202,
+        "email": "emma@example.com",
+        "country": "Germany",
+        "phone": "+491600000002",
+        "firstName": "Emma",
+        "lastName": "Schmidt",
+        "language": "en",
+        "role": "visitor"
+      }
+    ],
+    "registered_user": [
+      {
+        "id": 201,
+        "email": "david@example.com",
+        "country": "Germany",
+        "phone": "+491600000001",
+        "firstName": "David",
+        "lastName": "Keller",
+        "language": "de",
+        "role": "visitor"
+      },
+      {
+        "id": 202,
+        "email": "emma@example.com",
+        "country": "Germany",
+        "phone": "+491600000002",
+        "firstName": "Emma",
+        "lastName": "Schmidt",
+        "language": "en",
+        "role": "visitor"
+      },
+      {
+        "id": 203,
+        "email": "fanny@example.com",
+        "country": "Germany",
+        "phone": "+491600000003",
+        "firstName": "Fanny",
+        "lastName": "Meyer",
+        "language": "en",
+        "role": "visitor"
+      }
+    ],
+    "langage": ["en", "de"]
   }
 ]
