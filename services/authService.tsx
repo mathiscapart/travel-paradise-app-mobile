@@ -14,8 +14,11 @@ export interface LoginResponse {
 export interface User {
     id: string;
     email: string;
+    country: string,
+    phone: string,
     firstName: string;
     lastName: string;
+    language: string;
     avatar?: string;
     role: string;
 }
@@ -100,8 +103,11 @@ class AuthService {
             return {
                 id: payload.id,
                 email: payload.email,
+                country: payload.country,
+                phone: payload.phone,
                 firstName: payload.firstName,
                 lastName: payload.lastName,
+                language: payload.language,
                 avatar: payload.avatar,
                 role: payload.role,
             };

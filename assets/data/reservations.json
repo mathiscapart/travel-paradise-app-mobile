@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "visit_id": 1,
+    "start_date": "2025-05-14 10:00:00",
+    "secret_number": 1234,
+    "max_visitor": 15,
+    "attendance": 12,
+    "is_finished": false,
+    "notation": 4,
+    "guides_id": [1, 2]
+  },
+  {
+    "id": 2,
+    "visit_id": 2,
+    "start_date": "2025-06-10 15:30:00",
+    "secret_number": 5678,
+    "max_visitor": 10,
+    "attendance": 10,
+    "is_finished": true,
+    "notation": 5,
+    "guides_id": [3]
+  }
+]

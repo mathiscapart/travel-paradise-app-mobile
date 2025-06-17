@@ -23,10 +23,20 @@ export default function RootLayout() {
                         }}
                     />
                     <Stack.Screen
+                        name="profil"
+                        options={{
+                            title: 'Profil',
+                        }}
+                    />
+                    <Stack.Screen
                         name="logout"
                         options={{
                             title: 'Logout',
                         }}
+                    />
+                    <Stack.Screen
+                        name="visite/[id]"
+                        options={{ title: 'Visit detail' }}
                     />
                 </Stack.Protected>
                 <Stack.Protected guard={!isAuthenticated}>

@@ -1,13 +1,16 @@
 import PrimaryButton from "@/components/PrimaryButton";
 import {Text, View, StyleSheet} from "react-native";
+import { useRouter } from "expo-router";
+
 
 type Card = {
     title: string
     subtitle: string
     date: string
+    visitId: number
 }
 
-function Card ({title, subtitle, date}: Card){
+function Card ({title, subtitle, date, visitId }: Card){
     const styles = StyleSheet.create({
         card:{
             backgroundColor: 'white',
@@ -49,6 +52,15 @@ function Card ({title, subtitle, date}: Card){
         }
     })
 
+    const router = useRouter();
+
+    const handlePress = () => {
+        router.push({
+            pathname: "/visite/[id]",
+            params: { id: visitId.toString() },
+        });
+    };
+
     return(
             <View style={styles.card}>
                 <View style={styles.divtext}>
@@ -56,7 +68,7 @@ function Card ({title, subtitle, date}: Card){
                     <Text style={[styles.title, styles.text]}>{subtitle}</Text>
                     <Text style={[styles.date, styles.text]}>{date}</Text>
                 </View>
-                <PrimaryButton title="See more" maxWidth={100}></PrimaryButton>
+                <PrimaryButton title="See more" maxWidth={100} onPress={handlePress}></PrimaryButton>
             </View>
     )
 }

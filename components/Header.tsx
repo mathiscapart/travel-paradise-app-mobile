@@ -5,7 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Logo from "@/components/Logo";
 import {useAuth} from "@/hooks/useAuth";
 
-type RouteNames = "/" | "/explore" | "/login" | "/logout";
+type RouteNames = "/" | "/login" | "/logout" | "/profil";
 
 const getResponsiveDimensions = () => {
     const { width, height } = Dimensions.get('window');
@@ -166,6 +166,15 @@ function Header() {
                         >
                             <Text style={[dynamicStyles.menuItemText, { color: getMenuItemColor("/") }]}>
                                 Home
+                            </Text>
+                        </Pressable>
+                        <Pressable
+                            style={dynamicStyles.menuItem}
+                            onPress={() => navigateTo("/profil")}
+                            accessibilityLabel="Profil"
+                        >
+                            <Text style={[dynamicStyles.menuItemText, { color: getMenuItemColor("/") }]}>
+                                Profil
                             </Text>
                         </Pressable>
                         {isAuthenticated ? <Pressable
