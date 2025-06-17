@@ -83,12 +83,12 @@ export default function Profil(){
                 fontFamily: 'BeVietnam-Regular',
             },
             formSection: {
-                flex: 0.6,
-                justifyContent: 'center',
+                flex: 1,
+                justifyContent: 'flex-start',
                 alignItems: 'center',
                 paddingTop: 20,
                 paddingBottom: 10,
-                backgroundColor: "#F1F6FD",
+                backgroundColor: "#FFFFFF",
             },
             text: {
                 color: "#161D53",

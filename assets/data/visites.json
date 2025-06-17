@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "name": "Visite de la Tour Eiffel",
+    "img": "/img/tour_eiffel.png",
+    "country": "FR",
+    "address": "Champ de Mars, 5 Avenue Anatole France",
+    "town": "Paris",
+    "price": 10.0,
+    "list_equipement": [2, 5],
+    "duration": 120
+  },
+  {
+    "id": 2,
+    "name": "Balade sur la Côte d'Azur",
+    "img": "/img/cote_azur.jpg",
+    "country": "FR",
+    "address": "Promenade des Anglais",
+    "town": "Nice",
+    "price": 15.5,
+    "list_equipement": [1, 3],
+    "duration": 90
+  },
+  {
+    "id": 3,
+    "name": "Exploration de la Forêt Noire",
+    "img": "/img/foret_noire.jpg",
+    "country": "DE",
+    "address": "Schwarzwaldstraße 10",
+    "town": "Fribourg-en-Brisgau",
+    "price": 12.0,
+    "list_equipement": [2, 4, 6],
+    "duration": 150
+  }
+]

@@ -1,18 +1,26 @@
 import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import Card from "@/components/Card";
+import visites from "@/assets/data/visites.json";
+import reservations from "@/assets/data/reservations.json";
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
         <ScrollView  style={styles.container_card}>
             <Text style={styles.text}>Your next visits</Text>
-            <Card subtitle={"Paris, France"} title={"Visit of Tour Eiffeil"} date={"20 avril 2004"}></Card>
-            <Card subtitle={"Paris, France"} title={"Visit of Tour Eiffeil"} date={"20 avril 2004"}></Card>
-            <Card subtitle={"Paris, France"} title={"Visit of Tour Eiffeil"} date={"20 avril 2004"}></Card>
-            <Card subtitle={"Paris, France"} title={"Visit of Tour Eiffeil"} date={"20 avril 2004"}></Card>
-            <Card subtitle={"Paris, France"} title={"Visit of Tour Eiffeil"} date={"20 avril 2004"}></Card>
-            <Card subtitle={"Paris, France"} title={"Visit of Tour Eiffeil"} date={"20 avril 2004"}></Card>
-            <Card subtitle={"Paris, France"} title={"Visit of Tour Eiffeil"} date={"20 avril 2004"}></Card>
+            {reservations.map((res) => {
+                const visit = visites.find((v) => v.id === res.visit_id);
+
+                return (
+                    <Card
+                        key={res.id}
+                        title={visit ? visit.name : `Reservation #${res.id}`}
+                        subtitle={`Start: ${new Date(res.start_date).toLocaleString()}`}
+                        date={`Visitors: ${res.attendance}/${res.max_visitor} ${res.is_finished ? '(Finished)' : ''}`}
+                        visitId={res.id}
+                    />
+                );
+            })}
         </ScrollView>
      </View>
   );
