@@ -20,7 +20,7 @@ export interface User {
     lastName: string;
     language: string;
     avatar?: string;
-    role: string;
+    role: number;
 }
 
 class AuthService {

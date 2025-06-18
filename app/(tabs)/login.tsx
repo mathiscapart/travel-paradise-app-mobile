@@ -12,6 +12,7 @@ import { useRouter } from 'expo-router';
 import PrimaryButton from '@/components/PrimaryButton';
 import Logo from '@/components/Logo';
 import { useAuth } from '@/hooks/useAuth';
+import {authService} from "@/services/authService";
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -50,8 +51,18 @@ export default function Login() {
 
             await login({ email: email.trim(), password });
 
-            router.replace('/');
+            const userData = await authService.getUserFromToken();
 
+            if (!userData || userData.role !== 30) {
+                Alert.alert(
+                    'Accès refusé',
+                    'Votre rôle ne vous permet pas d’accéder à cette application.',
+                    [{ text: 'OK' }]
+                );
+                return;
+            }
+
+            router.replace('/');
         } catch (error) {
             console.error('Erreur de connexion:', error);
 
@@ -66,6 +77,7 @@ export default function Login() {
             setIsLoading(false);
         }
     };
+
 
     return (
         <View style={styles.container}>

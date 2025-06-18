@@ -29,6 +29,12 @@ export default function RootLayout() {
                         }}
                     />
                     <Stack.Screen
+                        name="dashboard"
+                        options={{
+                            title: 'Dashboard',
+                        }}
+                    />
+                    <Stack.Screen
                         name="logout"
                         options={{
                             title: 'Logout',
