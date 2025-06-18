@@ -18,6 +18,7 @@ const chartConfig = {
         stroke: "#8A4DFF"
     }
 };
+
 export default function Dashboard() {
     const lastVisits = [...reservations]
         .filter(r => r.is_finished)
@@ -31,11 +32,12 @@ export default function Dashboard() {
 
     const allVisits = [...reservations].sort((a, b) => new Date(a.start_date).getTime() - new Date(b.start_date).getTime());
 
+    // CORRECTION: Structure correcte pour LineChart
     const lineData = {
+        labels: allVisits.length > 0 ? allVisits.map((v, i) => (i + 1).toString()) : ['No Data'],
         datasets: [
             {
-                labels: allVisits.map((v, i) => (i + 1).toString()),
-                data: allVisits.map(v => v.notation ?? 0),
+                data: allVisits.length > 0 ? allVisits.map(v => v.notation ?? 0) : [0],
                 strokeWidth: 2,
             }
         ]
